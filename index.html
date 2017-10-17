@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>:: PROXYTIA GAME - EKSA ::</title>
+    <link rel="stylesheet" href="assets/css/mygame.css">
+    <link rel="stylesheet" href="assets/css/font-awesome/css/font-awesome.min.css" type='text/css' media='screen' />
+    <!-- <script type="text/javascript" src="assets/js/jquery-1.11.0.min.js"></script> -->
+    <script type="text/javascript" src="assets/js/mygame.js"></script>
+</head>
+<body onload="init();">
+
+    <div class="header">
+        <h2 class="text-center">PROXYTIA</h2>
+        <p><strong>PSEDOCODE:</strong> Tampilkan halaman depan dengan input "Nama" dan "Umur" serta tiga 
+            karakter hero (Ksatria, Penyihir, dan Tabib). Jika input "Nama" tidak di isi maka Tampilkan
+            pesan "Masukkan Nama Anda !", jika input "Umur" tidak di isi maka tampilkan pesan "Masukkan 
+            Umur Anda !". Pilih salah satu karakter hero untuk melanjutkan ke halaman berikutnya.</p>
+        <p>Di halaman dua, tampilkan karakter hero yang dipilih dengan karakter monster. Tambahkan dua
+            tombol "Home" untuk kembali ke halaman pertama, dan "War" untuk melanjutkan ke halaman 
+            berikutnya, dengan variabel : "tahunLahir" adalah tahun sekarang dikurangi dengan "Umur",
+            "playerHealth" dan "monsterHealth" adalah nilai acak dari "tahunLahir", "kodeMonster" adalah
+            pembulatan dari nilai seratus pangkat angka acak, "intUmur" adalah pangkat dari "Umur". Setelah
+            semua variabel terpenuhi, dilakukan perulangan sebanyak "tahunLahir". Didalam perulangan 
+            tersebut ada beberapa kondisi : 1. Jika indeks perulangan adalah kelipatan "Umur" maka kurangi
+            "monsterHealth" dengan "Umur" 2. Jika indeks perulangan adalah kelipatan "kodeMonster" maka
+            kurangi "playerHealth" dengan "kodeMonster" 3. Jika indeks perulangan adalah kelipatan "Umur"
+            dan "kodeMonster" sekaligus maka tambahkan "playerHealth" dengan "kodeMonster" dan tambahkan
+            "monsterHealth" dengan "Umur".</p>
+        <p>Jika "playerHealth" lebih besar dari "monsterHealth" maka tampilkan "Selamat, [Karakter] [Nama]
+            memenangkan pertarungan!", jika sebaliknya maka tampilkan "Sayang sekali, [Karakter] [Nama] 
+            dikalahkan monster...". Terakhir tambahkan tombol "Home" untuk kembali ke halaman pertama. </p>
+    </div>
+
+    <div class="containers" id="containers">
+        <!-- konten halaman depan -->
+        <form action="form-start">
+        <div id="container1">             
+            <div id="content1">Masukan Nama dan Umur Kemudian Pilih Peran Dibawah ini.</div>
+            <p>
+                Nama : <input type="text" id="name" name="name" placeholder="Nama Anda ?">
+                Umur : <input type="text" id='age' name="age" placeholder="Umur ?">
+            </p><br>
+            <section id="left-column">
+                <a href="javascript:void(0);" id="ksatria" onClick="return showDiv(2,this.id)" title="Ksatria" rel="nofollow">
+                    <img src="assets/image/ksatria.png" alt="Ksatria">
+                </a>
+            </section>
+            <section id="middle-column">
+                <a href="javascript:void(0);" id="penyihir" onClick="return showDiv(2, this.id)" title="Penyihir" rel="nofollow">
+                    <img src="assets/image/penyihir.png" alt="Penyihir">
+                </a>
+            </section>
+            <section id="right-column">
+                <a href="javascript:void(0);" id="tabib" onClick="return showDiv(2, this.id)" title="Tabib" rel="nofollow">
+                    <img src="assets/image/tabib.png" alt="Tabib">
+                </a>
+            </section>
+        </div>
+
+        <!-- konten persiapan perang -->
+        <div id="container2">
+            <div id="content2">Welcome to The Word of Proxytia,</div>
+            <input type="hidden" id="peran"><br>
+            <section id="left-column">
+                <img id="imgPeran" src="assets/image/ksatria.png" alt="Ksatria">
+            </section>
+            <section id="middle-column">
+                <img src="assets/image/versus.png" alt="Versus">
+                <a href="javascript:void(0);" onClick="return showDiv(1)" title="Kembali halaman depan" rel="nofollow">
+                    <img src="assets/image/btn_home.png" height="89" width="150" alt="Kembali halaman depan">
+                </a>
+                <a href="javascript:void(0);" onClick="return showDiv(3)" title="Mulai peperangan" rel="nofollow">
+                    <img src="assets/image/btn_war.png" height="89" width="150" alt="Mulai peperangan">
+                </a>
+            </section>
+            <section id="right-column">
+                <img src="assets/image/monster.png" alt="Monster">
+            </section>
+        </div>
+
+        <!-- konten hasil perang -->
+        <div id="container3"> 
+            <div id="content3" class="text-center">War is end now,</div><br>
+            <section id="left-column"></section>
+            <section id="middle-column">
+                <img id="imgWinner" src="assets/image/ksatria.png" height="360" width="320" alt="Ksatria">
+                <a href="javascript:void(0);" onClick="return showDiv(1)" title="Kembali halaman depan" rel="nofollow">
+                    <img src="assets/image/btn_home.png" height="60" width="320" alt="Kembali halaman depan">
+                </a>
+            </section>
+            <section id="right-column"></section>
+        </div>
+    </form>
+    </div>
+
+    <div class="footer">
+        <p class="text-right">
+            <a href="#"><i class="fa fa-facebook-official fa-inverse"></i></a>
+            <a href="#"><i class="fa fa-linkedin-square fa-inverse"></i></a>
+            &copy;2017 <a href="mailto:eksant@gmail.com">eksa</a> | <a href="https://hacktiv8.com">hacktiv8</a> - northern fox
+        </p>
+    </div>
+
+    <div id="backgrounds"></div>
+    
+</body>
+</html>
